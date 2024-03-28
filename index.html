@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A very simple website built with jQuery and Tailwind CSS.">
+  <meta name="author" content="Juan Luis Ochoa">
+  <title>A Very Simple Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="h-lvh bg-teal-300 text-teal-900">
+
+    <main class="flex flex-col items-center justify-center h-full">
+        <h1 class="text-3xl md:text-6xl font-bold">A very simple website</h1>
+
+        <p class="md:text-2xl mt-3">Built with jQuery and Tailwind CSS</p>
+
+        <button id="openModal" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mt-4">Just a button</button>
+    </main>
+
+    <!-- Modal -->
+    <div id="springModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      <div class="modal-content bg-white rounded-lg p-16 relative">
+        <button class="close absolute top-0 right-2 mt-2 mr-2 text-2xl cursor-pointer">&times;</button>
+        <h2 class="text-xl">Spring has sprung!</h2>
+      </div>
+    </div>
+
+    <script>
+      // jQuery script to handle button and modal functionality
+      $(document).ready(function(){
+        // When the button is clicked, show the modal
+        $("#openModal").click(function(){
+          $("#springModal").removeClass("hidden");
+        });
+        // When the user clicks on the X icon or outside the modal, close the modal
+        $(".close, #springModal").click(function(event){
+          if(event.target === this){
+            $("#springModal").addClass("hidden");
+          }
+        });
+      });
+    </script>
+</body>
+</html>
